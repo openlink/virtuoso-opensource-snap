@@ -1,0 +1,38 @@
+name: virtuoso-opensource
+version: '7.2.5-dev'
+summary: OpenLink Virtuoso Open Source Edition
+description: |
+  Virtuoso is a scalable cross-platform server that combines Relational,
+  Graph, and Document Data Management with Web Application Server and
+  Web Services Platform functionality.
+
+grade: devel
+confinement: devmode
+
+apps:
+  virtuoso-opensource:
+    command: snap-virtuoso-opensource
+    plugs:
+      - process-control
+      - network
+      - network-bind
+  isql:
+    command: isql
+
+parts:
+  virtuoso-opensource:
+    source: https://github.com/openlink/virtuoso-opensource.git
+    source-type: git
+    source-tag: develop/7
+    plugin: autotools
+    configflags:
+      - --with-layout=opt
+      - --disable-imagemagick
+      - --disable-wbxml2
+    install-via: destdir
+  scripts:
+    plugin: dump
+    source: ./scripts
+    organize:
+      snap-virtuoso-opensource: bin/snap-virtuoso-opensource
+
