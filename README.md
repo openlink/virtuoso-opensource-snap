@@ -28,7 +28,7 @@ To build snap packages you first need to install a number of development tools i
 The following instructions will work on most recent Debian and Ubuntu installations:
 ```shell
     # Install the snap daemon and the snapcraft toolkit
-    $ sudo apt install snap snapcraft
+    $ sudo apt install snapd snapcraft
 
     # Install the basic development tools
     $ sudo apt install build-essential equivs devscripts \
@@ -64,7 +64,7 @@ To build this snap package in your own environment you can run the following com
 If you rather just experiment with a pre-build version you can run the following commands:
 ```shell
     # Install the snap daemon
-    $ sudo apt install snap
+    $ sudo apt install snapd
 
     # Download a copy of the snap image build by OpenLink Software
     $ cd /tmp
